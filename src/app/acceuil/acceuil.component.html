@@ -1,41 +1,198 @@
-<div id="quiz" class="section">
-    <div class="section-center">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="quiz-form">
-                <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                    <span class="form-label">Difficulty</span>
-                    <select class="form-control">
-                        <option>Easy</option>
-                        <option>Medium</option>
-                        <option>EHard</option>
-                    </select>
-                    <span class="select-arrow"></span>
-                           </div>
-                      </div>
-                 </div>
+   <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+       
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-center {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .justify-content-md-center {
+            justify-content: center;
+        }
+        
+        .col-md-12 {
+            width: 100%;
+            padding: 0 15px;
+        }
+        
+       
+        .quiz-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: #fff;
+        }
+        
+        .select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #7f8c8d;
+        }
+        
+      
+        .form-bt1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+    
+    </style>
 
-                 <div class="row">
-                     <div class="col-md-12">
-                        <div class="form-group">
-                        <span class="form-label">Questions</span>
-                        <select class="form-control">
-                            <option>5</option>
-                            <option>10</option>
-                            <option>15</option>
-                            <option>20</option>
-                        </select>
-                        <span class="select-arrow"></span>
-                               </div>
-                          </div>
-                     </div>
-                </div>
-                <div class="form-bt1">
-                    <button class="submit-btn">Start Quiz</button>
+<body>
+    <div id="quiz" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="quiz-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Category</span>
+                                    <select class="form-control">
+                                        <option value="">Any Category</option>
+                                        <option value="9">General Knowledge</option>
+                                        <option value="10">Books</option>
+                                        <option value="11">Films</option>
+                                        <option value="12">Music</option>
+                                        <option value="13">Musicals & Theatres</option>
+                                        <option value="14">Television</option>
+                                        <option value="15">Video Games</option>
+                                        <option value="16">Board Games</option>
+                                        <option value="17">Science & Nature</option>
+                                        <option value="18">Computers</option>
+                                        <option value="19">Mathematics</option>
+                                        <option value="20">Mythology</option>
+                                        <option value="21">Sports</option>
+                                        <option value="22">Geography</option>
+                                        <option value="23">History</option>
+                                        <option value="24">Politics</option>
+                                        <option value="25">Art</option>
+                                        <option value="26">Celebrities</option>
+                                        <option value="27">Animals</option>
+                                        <option value="28">Vehicles</option>
+                                        <option value="29">Comics</option>
+                                        <option value="30">Gadgets</option>
+                                        <option value="31">Japanese Anime & Manga</option>
+                                        <option value="32">Cartoon & Animations</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Difficulty</span>
+                                    <select class="form-control">
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="hard">Hard</option>
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Number of Questions</span>
+                                    <select class="form-control">
+                                        <option value="5">5</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-bt1">
+                        <button class="submit-btn">Start Quiz</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { QuizService } from './services/quiz.service';
 import { AcceuilComponent } from "./acceuil/acceuil.component";
 
 @Component({
@@ -11,11 +12,11 @@ import { AcceuilComponent } from "./acceuil/acceuil.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'QuizApp';
+ title = 'quizApp'
   public questionsLimit : number;
   public difficulty : string;
 
-  constructor(){
+  constructor(private quizService:QuizService){
     this.questionsLimit = 10;
     this.difficulty = "Easy"
   }
