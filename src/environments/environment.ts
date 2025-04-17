@@ -1,3 +1,3 @@
 export const environment = {
-    quizApikey : "https://opentdb.com/api.php?amount=10"
+    quizApikey : "https://opentdb.com/api.php"
 };
