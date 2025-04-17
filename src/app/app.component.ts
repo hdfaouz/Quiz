@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { QuizService } from './services/quiz.service';
+import { response } from 'express';
 
 
 @Component({
@@ -12,5 +14,13 @@ import { NavbarComponent } from "./navbar/navbar.component";
 })
 export class AppComponent {
  title = 'quizApp'
+ public questionsLimit : number;
+ public difficulty : string;
+
+ constructor(private quizService:QuizService){
+  this.questionsLimit = 10;
+  this.difficulty="Easy"
+ }
+
 
 }
