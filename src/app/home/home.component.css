@@ -1,4 +1,4 @@
-/* Home Container */
+
 .home-container {
     position: relative;
     background-image: url('https://img.freepik.com/free-vector/quiz-editable-text-effect-editable-cartoon-fun-text-style_314614-5465.jpg?t=st=1744628161~exp=1744631761~hmac=083e2834afd4ad8a287c67d2d77dd3900cb738213fb21ea1fd490e997b8ca9a2&w=1800');
@@ -12,7 +12,7 @@
     color: #fff;
   }
   
-  /* Overlay for readability */
+  
   .overlay {
     position: absolute;
     top: 0;

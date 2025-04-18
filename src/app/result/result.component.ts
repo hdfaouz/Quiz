@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   template: `
     <div class="container mt-4">
       <h2>Merci d'avoir joué !</h2>
-      <a class="btn btn-primary" routerLink="/quiz">Rejouer</a>
+      <a class="btn btn-primary" routerLink="/home">Rejouer</a>
     </div>
   `
 })
