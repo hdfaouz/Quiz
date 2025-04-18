@@ -1,15 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand fw-bold fs-3 text-primary">Quiz</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav ms-auto">
-                <a routerLink="/Accueil" class="nav-link  px-3 py-2 mx-1 rounded-3 fw-medium">Accueil</a>
-                <a routerLink="/Historique" class="nav-link px-3 py-2 mx-1 rounded-3 fw-medium">Historique</a>
-                <a routerLink="/Paramètres" class="nav-link px-3 py-2 mx-1 rounded-3 fw-medium">Paramètres</a>
-            </div>
-        </div>
+
+<nav class="navbar">
+  
+  <div class="navbar-container">
+    <a class="navbar-brand" routerLink="/home">QuizApp</a>
     </div>
-</nav>
+
+    <div class="navbar-links">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
+      <a class="nav-link" routerLink="/history" routerLinkActive="active">Historique</a>
+    </div>
+    
+  </nav>

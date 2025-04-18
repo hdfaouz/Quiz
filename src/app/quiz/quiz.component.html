@@ -1,81 +1,41 @@
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div *ngIf="loading" class="d-flex justify-content-center my-5">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Chargement...</span>
-          </div>
-        </div>
-  
-        <div *ngIf="!loading && currentQuestion">
-          <!-- Progress Info -->
-          <div class="d-flex justify-content-between mb-2">
-            <div>Question: {{ currentIndex + 1 }}/{{ totalQuestions }}</div>
-            <div>Score: {{ score }}</div>
-          </div>
-  
-          <!-- Progress Bar -->
-          <div class="progress mb-4">
-            <div class="progress-bar bg-primary" [style.width.%]="getProgressPercentage()"></div>
-          </div>
-  
-          <!-- Timer -->
-          <div class="mb-3">
-            <div class="d-flex justify-content-end">
-              <div class="badge" [ngClass]="{
-  'bg-success': timeLeft > 10,
-    'bg-warning': timeLeft <= 10 && timeLeft > 5,
-    'bg-danger': timeLeft <= 5
-  }">
-                Temps: {{ timeLeft }} s
-              </div>
-            </div>
-          </div>
-  
-          <!-- Question Card -->
-          <div class="card shadow mb-4">
-            <div class="card-header bg-primary text-white">
-              <h5 class="mb-0">{{ currentQuestion.category }}</h5>
-              <div class="badge bg-light text-dark">
-                {{ currentQuestion.difficulty | titlecase }}
-              </div>
-            </div>
-  
-            <div class="card-body">
-              <h5 class="card-title" [innerHTML]="currentQuestion.question | decodeHtml"></h5>
-  
-              <div class="list-group mt-4">
-                <button *ngFor="let answer of currentQuestion.allAnswers"
-                        class="list-group-item list-group-item-action mb-2"
-                        [ngClass]="{
-  'active': selectedAnswer === answer && !isAnswered,
-    'list-group-item-success': isAnswered && answer === currentQuestion.correct_answer,
-    'list-group-item-danger': isAnswered && selectedAnswer === answer && answer !== currentQuestion.correct_answer
-  }"
-                        [disabled]="isAnswered"
-                        (click)="selectAnswer(answer)">
-                  {{ answer | decodeHtml }}
-                </button>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Feedback & Next Button -->
-          <div *ngIf="isAnswered" class="d-flex flex-column align-items-center mb-4">
-            <div *ngIf="isCorrect" class="alert alert-success w-100">
-              Bonne réponse !
-            </div>
-            <div *ngIf="!isCorrect" class="alert alert-danger w-100">
-              Mauvaise réponse ! La bonne réponse était: {{ currentQuestion.correct_answer | decodeHtml }}
-            </div>
-  
-            <button class="btn btn-primary mt-2" (click)="nextQuestion()">
-              {{ currentIndex < totalQuestions - 1 ? 'Question Suivante' : 'Voir les Résultats' }}
-            </button>
-          </div>
+<div class="container mt-5" *ngIf="questions.length">
+  <div *ngIf="currentQuestion < questions.length" class="quiz-card">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4 class="text-muted">Question {{ currentQuestion + 1 }} / {{ questions.length }}</h4>
+      <span class="badge bg-primary rounded-pill p-2">Score: {{ score }}</span>
+    </div>
+    
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title fw-bold mb-4" [innerHTML]="questions[currentQuestion].question"></h5>
+        
+        <div class="d-grid gap-2">
+          <button class="btn btn-answer py-3"
+                  *ngFor="let ans of questions[currentQuestion].answers"
+                  [class.correct-answer]="isAnswered && ans === correctAnswer"
+                  [class.wrong-answer]="isAnswered && ans === selected && ans !== correctAnswer"
+                  [class.selected-answer]="ans === selected && !isAnswered"
+                  (click)="selectAnswer(ans)">
+            {{ ans }}
+          </button>
         </div>
       </div>
     </div>
   </div>
   
+  <div *ngIf="currentQuestion >= questions.length" class="results-card text-center">
+    <div class="card shadow p-4">
+      <h3 class="text-success mb-3">🎉 Quiz terminé !</h3>
+      <p class="display-6 mb-4">Votre score: <span class="fw-bold">{{ score }}/{{ questions.length }}</span></p>
+      
+      <div class="form-floating mb-3 mx-auto" style="max-width: 400px;">
+        <input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Nom d'utilisateur">
+        <label for="username">Nom d'utilisateur</label>
+      </div>
+      
+      <button class="btn btn-success btn-lg px-5" (click)="saveResult()">
+        <i class="bi bi-check-circle me-2"></i>Enregistrer
+      </button>
+    </div>
+  </div>
+</div>

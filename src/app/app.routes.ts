@@ -1,12 +1,15 @@
 import { Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { AcceuilComponent } from './acceuil/acceuil.component';
+import { HomeComponent } from './home/home.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { ResultComponent } from './result/result.component';
+import { HistoryComponent } from './history/history.component';
 export const routes: Routes = [
-    {path : '', component: AcceuilComponent},
-    {path : 'quiz', component: AcceuilComponent},
-    {path : 'result', component: AcceuilComponent},
-    {path : 'history', component: AcceuilComponent},
-    {path : '**', component: AcceuilComponent},
+
+  {path:'home',component:HomeComponent},
+  { path: 'quiz', component: QuizComponent },
+  { path: 'result', component: ResultComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 
